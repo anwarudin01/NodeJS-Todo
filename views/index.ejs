@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simple Todo App</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>Todo List</h1>
+
+    <ul>
+      <% todos.forEach((todo, index) => { %>
+      <li>
+        <%= todo %>
+        <form method="POST" action="/delete/<%= index %>">
+          <button type="submit">Delete</button>
+        </form>
+      </li>
+      <% }); %>
+    </ul>
+
+    <form method="POST" action="/add">
+      <input type="text" name="todo" required />
+      <button type="submit">Add Todo</button>
+    </form>
+  </body>
+</html>
